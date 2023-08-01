@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">BMECTE</string>
+    <string name="title_home">Home</string>
+    <string name="title_save">Save</string>
+    <string name="title_add">Add</string>
+    <string name="title_message">Message</string>
+    <string name="title_account">Account</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="next_lesson_capture">Следующее занятие</string>
+    <string name="next_lesson_const">Следующее занятие</string>
+    <string name="passed_const">Пройдено</string>
+    <string name="passed_num">2 курса</string>
+    <string name="remained_const">Осталось</string>
+    <string name="remained_num">14 занятий</string>
+    <string name="next_lesson_num">Сегодня в 12:00</string>
+    <string name="chat_button_name_const">Показать чат</string>
+    <string name="all_button_text_const">Все</string>
+    <string name="lessons_text_const">Последние курсы</string>
+</resources>

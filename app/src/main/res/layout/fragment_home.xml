@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.home.HomeFragment"
+    android:paddingBottom="60dp"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/orange"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            tools:ignore="MissingConstraints">
+    
+            <TextView
+                android:id="@+id/next_lesson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next_lesson_const"
+                android:textAppearance="@style/next_lesson_style"
+    
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/search_button"
+                app:layout_constraintHorizontal_bias="0"
+                />
+    
+            <TextView
+                android:id="@+id/date_of_next_lesson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next_lesson_num"
+                android:textAppearance="@style/next_lesson_date_style"
+    
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/next_lesson"
+                app:layout_constraintEnd_toStartOf="@id/search_button"
+                app:layout_constraintHorizontal_bias="0"
+                />
+    
+            <ImageButton
+                android:id="@+id/search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search"
+    
+                android:contentDescription="TODO"
+                app:layout_constraintBottom_toTopOf="@+id/spacer1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+    
+            <android.widget.Space
+                android:id="@+id/spacer1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+    
+                app:layout_constraintTop_toBottomOf="@id/date_of_next_lesson"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+    
+            <TextView
+                android:id="@+id/passed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/passed_const"
+                android:textAppearance="@style/next_lesson_style"
+    
+                app:layout_constraintTop_toBottomOf="@id/spacer1"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+    
+            <TextView
+                android:id="@+id/passed_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/passed_num"
+                android:textAppearance="@style/next_lesson_date_style"
+    
+                app:layout_constraintTop_toBottomOf="@id/passed"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+    
+            <TextView
+                android:id="@+id/remained"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remained_const"
+                android:textAppearance="@style/next_lesson_style"
+    
+                app:layout_constraintTop_toBottomOf="@id/spacer1"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+    
+            <TextView
+                android:id="@+id/remained_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remained_num"
+                android:textAppearance="@style/next_lesson_date_style"
+    
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/remained" />
+    
+            <android.widget.Space
+                android:id="@+id/spacer2"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+    
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/remained_num"
+                />
+    
+    
+            <RelativeLayout
+                android:id="@+id/message_chat_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="12dp"
+                android:clickable="true"
+                android:background="@drawable/chat_button"
+                android:textAppearance="@style/chat_button_style"
+    
+                app:layout_constraintTop_toBottomOf="@id/spacer2">
+    
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chat_button_name_const"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/chat_button_style"
+                        />
+    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="нет новых"
+                        android:textAppearance="@style/chat_button_counter_style"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical"
+                        android:textSize="16sp"
+                        />
+    
+            </RelativeLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scrollLesson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingHorizontal="12dp"
+            android:paddingTop="20dp"
+
+            app:layout_constraintTop_toBottomOf="@id/top_bar">
+
+            <LinearLayout
+                android:id="@+id/your_lessons_buttons"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/your_lessons"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp"
+                    android:background="@drawable/left_button"
+
+                    app:layout_constraintEnd_toStartOf="@id/all_your_lessons_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lessons_text_const"
+                        android:gravity="start|center_vertical"
+                        android:textAppearance="@style/left_button_style"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                
+                <androidx.legacy.widget.Space
+                    android:layout_width="2pt"
+                    android:layout_height="match_parent"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/all_your_lessons_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/right_button"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="20dp"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/your_lessons"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/all_button_text_const"
+                        android:textAppearance="@style/right_button_style"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_lessons"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:padding="8dp"
+                android:layout_marginTop="12dp"
+                android:clipToPadding="false"
+                android:clipChildren="false"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/your_lessons_buttons">
+
+            </androidx.viewpager2.widget.ViewPager2>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tl_courses"
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                app:tabBackground="@drawable/tab_selector"
+                app:tabGravity="fill"
+                app:tabIndicator="@null"
+                app:tabMaxWidth="30dp"
+                app:layout_constraintTop_toBottomOf="@+id/vp_lessons"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/your_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingHorizontal="12dp"
+            android:paddingTop="16dp"
+
+            tools:ignore="MissingConstraints"
+
+            app:layout_constraintTop_toBottomOf="@id/scrollLesson">
+            <LinearLayout
+                android:id="@+id/your_notes_buttons"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/your_notes_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4.33"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp"
+
+                    android:background="@drawable/left_button"
+                    app:layout_constraintEnd_toStartOf="@id/all_your_lessons_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ваши заметки"
+                        android:gravity="start|center_vertical"
+                        android:textAppearance="@style/left_button_style"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="2pt"
+                    android:layout_height="match_parent"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/all_your_notes_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="20dp"
+                    android:background="@drawable/right_button"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/your_lessons"
+                    app:layout_constraintTop_toTopOf="parent" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/all_button_text_const"
+                        android:textAppearance="@style/right_button_style"
+                        android:gravity="center"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <androidx.legacy.widget.Space
+                android:id="@+id/spacer4.1"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toBottomOf="@id/your_notes_buttons"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/last_your_notes_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toBottomOf="@id/spacer4.1"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/last_your_notes_button_yellow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingHorizontal="12dp"
+                    android:paddingTop="24dp"
+                    android:paddingBottom="12dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/lesson_scroll_button"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+                    <TextView
+                        android:id="@+id/last_your_notes_button_big_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:text="Для создания новой Activity"
+                        android:textAppearance="@style/yellow_big_text_style"
+                        android:textStyle="bold"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="Нужно лишь применить старый дедовский визард"
+                        android:textAppearance="@style/yellow_small_text_style"
+
+                        app:layout_constraintTop_toBottomOf="@id/last_your_notes_button_big_text"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/data_your_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@drawable/small_gray_data_n_name_view"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12 июля"
+                        android:textAppearance="@style/data_n_name_style"
+
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.legacy.widget.Space
+            android:id="@+id/spacer5"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+
+            app:layout_constraintTop_toBottomOf="@id/your_notes"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/community_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingHorizontal="12dp"
+
+            app:layout_constraintTop_toBottomOf="@id/spacer5">
+
+            <LinearLayout
+                android:id="@+id/community_notes_buttons"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/community_notes_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4.33"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp"
+
+                    android:background="@drawable/left_button"
+                    app:layout_constraintEnd_toStartOf="@id/all_your_lessons_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Заметки сообщества"
+                        android:gravity="start|center_vertical"
+                        android:textAppearance="@style/left_button_style"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="2pt"
+                    android:layout_height="match_parent"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/all_community_notes_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/right_button"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="20dp"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/your_lessons"
+                    app:layout_constraintTop_toTopOf="parent" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/all_button_text_const"
+                        android:textAppearance="@style/right_button_style"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+            
+            <androidx.legacy.widget.Space
+                android:id="@+id/spacer5.1"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toBottomOf="@id/community_notes_buttons"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/last_community_notes_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toBottomOf="@id/spacer5.1"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/last_community_notes_button_yellow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingHorizontal="12dp"
+                    android:paddingTop="24dp"
+                    android:paddingBottom="12dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/lesson_scroll_button"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+                    <TextView
+                        android:id="@+id/last_community_notes_button_bid_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:text="Тест для текста в несколько строк. Это очень важно"
+                        android:textAppearance="@style/yellow_big_text_style"
+                        android:textStyle="bold"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="нь важный момент. Его нужно проверять постоянно"
+                        android:textAppearance="@style/yellow_small_text_style"
+
+                        app:layout_constraintTop_toBottomOf="@id/last_community_notes_button_bid_text"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/nome_community_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="@drawable/small_gray_data_n_name_view"
+                    >
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/circle_profille_image"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        app:shapeAppearanceOverlay="@style/circleImageView"
+                        android:src="@drawable/clown"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <androidx.legacy.widget.Space
+                        android:id="@+id/spacer_between_name_and_photo"
+                        android:layout_width="2dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/circle_profille_image"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Имя Фамилия"
+                        android:textAppearance="@style/data_n_name_style"
+
+
+                        app:layout_constraintStart_toEndOf="@id/spacer_between_name_and_photo"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/data_community_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@drawable/small_gray_data_n_name_view"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12 июля"
+                        android:textAppearance="@style/data_n_name_style"
+
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
